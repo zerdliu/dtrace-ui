@@ -22,3 +22,8 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'trace/trace.scss';
 @import 'modal/modal.scss';
 // endinjector
+
+.form-inline .ui-select-container .ui-select-toggle,
+.form-inline .ui-select-container .ui-select-search {
+  width: 100%;
+}

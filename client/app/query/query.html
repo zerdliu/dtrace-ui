@@ -1,30 +1,68 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="col-md-12">
 
+<div class="container">
+  <div class="content">
+    <div class="row well well-sm">
+    
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <ui-select style="width:234px;" ng-model="query.service" ng-disabled="disabled">
+            <ui-select-match placeholder="Service Name">{{$select.selected}}</ui-select-match>
+            <ui-select-choices repeat="service in services| filter: $select.search">
+              <span ng-bind-html="service | highlight: $select.search"></span>
+            </ui-select-choices>
+          </ui-select>
+        </div>
+    
+        <div class="form-group">
+          <label for="end">End time</label>
+          <input class="form-control" max-view="date" min-view="date" date-time ng-model="query.enddate" format='yyyy-MM-dd'>
+    
+          <input class="form-control" ng-model="query.endtime" required /> 
+        </div>
+    
+        <div class="form-group">
+          <label for="limit">Limit</label>
+          <input class="form-control" ng-model="query.limit">
+        </div>
+    
+        <button type="submit" class="btn btn-default" ng-click="search(query)">Find Traces</button>
+    
+        <div class="clearfix"></div>
+        </br>
+        <input type="text" class="form-control" style="width: 100%" ng-model="query.annotationQuery" placeholder='Annotations Query (e.g. "finagle.timeout", "http.uri=/foo/bar/ and cluster=foo and cache.miss")'>
+      </form>
+    
+      </div>
+    </div>
 
-  <div class="btn-group" role="group">
+    <div class="row">
+      <div ng-hide="traces.length" class="alert alert-info">
+        <p>Please select the criteria for your trace lookup.</p>
+      </div>
 
-  <ui-select ng-model="service.selected" ng-disabled="disabled" style="width: 300px;">
-    <ui-select-match placeholder="Select a service">{{$select.selected}}</ui-select-match>
-    <ui-select-choices repeat="service in services| filter: $select.search">
-      <span ng-bind-html="service | highlight: $select.search"></span>
-    </ui-select-choices>
-  </ui-select>
+      <div ng-repeat="trace in traces"> 
+      <ul class='list-unstyled'>
+        <li class="trace" class="label label-primary">
+          <a href="/trace/{{trace.traceId}}">
+            <div>
+              {{trace.endTimestamp - trace.startTimestamp | number }}ms
+              {{trace.spanTimestamps.length}} spans
+            </div>
+          </a>
 
-  End Time:
-  <input class="form-control" max-view="date" min-view="date" date-time ng-model="end" format='yyyy-MM-dd' style="width: 300px;">
+          <div class="btn-group" ng-repeat="span in trace.spanTimestamps">
+            <span class="label label-default service-filter-label">{{span.name}}</span>
+          </div>
 
-  <input class="form-control" style="width: 300px;">
-  Limit:
-  <input class="form-control" style="width: 300px;">
-
-
-  <button class="form-control" style="width: 300px;">
-    Find Traces
-  </button>
-
-  <input class="form-control" placeholder='Annotations Query (e.g. "finagle.timeout", "http.uri=/foo/bar/ and cluster=foo and cache.miss")'>
-
+          <div class="label label-primary timestamp pull-right">
+            {{ trace.startTimestamp / 1000 | date}}
+          </div>
+        </li>
+      </ul>
+      </div>
+    </div>
 
   </div>
 </div>
+
