@@ -1,0 +1,47 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="content">
+    <div class="row well well-sm">
+      <form class="form-inline" role="form" name="queryFrom" ng-submit="search(query)" novalidate>
+
+        <div class="form-group" ng-class="{ 'has-error': queryForm.service.$invalid }">
+          <ui-select name="service" ng-required="true" style="width:234px;" ng-model="query.service">
+            <ui-select-match placeholder="Service Name">{{$select.selected}}</ui-select-match>
+            <ui-select-choices repeat="service in services| filter: $select.search">
+              <span ng-bind-html="service | highlight: $select.search"></span>
+            </ui-select-choices>
+          </ui-select>
+        </div>
+
+        <div class="form-group">
+          <label>End time</label>
+	  <date-time-input enddate="query.enddate" endtime="query.enddtime" end="query.end"></date-time-input>
+        </div>
+
+        <div class="form-group">
+          <label for="limit">Limit</label>
+          <input class="form-control" ng-model="query.limit">
+        </div>
+
+        <button type="submit" class="btn btn-default">Find Traces</button>
+
+        </br>
+        </br>
+        <input type="text" class="form-control" style="width: 100%" ng-model="query.annotationQuery" placeholder="Annotations Query (e.g. 'finagle.timeout', 'http.uri=/foo/bar/ and cluster=foo and cache.miss')">
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div ng-hide="traces.length" class="alert alert-info">
+      <p>Please select the criteria for your trace lookup.</p>
+    </div>
+
+    <div ng-repeat="trace in traces"> 
+      <trace-info></trace-info>
+    </div>
+  </div>
+
+</div>
+

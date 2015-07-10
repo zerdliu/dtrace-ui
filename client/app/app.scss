@@ -17,6 +17,17 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 // Component styles are injected through grunt
 // injector
+@import 'dateTimeInput/dateTimeInput.scss';
 @import 'main/main.scss';
+@import 'query/query.scss';
+@import 'serviceInput/serviceInput.scss';
+@import 'trace/trace.scss';
+@import 'traceDetail/traceDetail.scss';
+@import 'traceInfo/traceInfo.scss';
 @import 'modal/modal.scss';
 // endinjector
+
+.form-inline .ui-select-container .ui-select-toggle,
+.form-inline .ui-select-container .ui-select-search {
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+<ul class="list-unstyled">
+  <li class="trace">
+    <a href="/trace/{{trace.traceId}}">
+      <div>
+        {{trace.endTimestamp - trace.startTimestamp | number }}ms
+        {{trace.spanTimestamps.length}} spans
+      </div>
+    </a>
+
+    <div class="btn-group" ng-repeat="span in trace.spanTimestamps">
+      <span class="label label-default service-filter-label">{{span.name}}</span>
+    </div>
+
+    <div class="label label-primary timestamp pull-right">
+      {{ trace.startTimestamp / 1000 | date}}
+    </div>
+  </li>
+</ul>

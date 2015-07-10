@@ -13,7 +13,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
-      <link rel="stylesheet" href="bower_components/acute-select/acute.select/acute.select.div.css" />
+      <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+      <link rel="stylesheet" href="bower_components/angular-datepicker/dist/index.css" />
+      <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -55,16 +57,26 @@
       <script src="bower_components/angular-route/angular-route.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-      <script src="bower_components/angular-touch/angular-touch.js"></script>
-      <script src="bower_components/acute-select/acute.select/acute.select.js"></script>
+      <script src="bower_components/angular-ui-select/dist/select.js"></script>
+      <script src="bower_components/angular-datepicker/dist/index.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/dateTimeInput/dateTimeInput.directive.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/query/query.controller.js"></script>
+          <script src="app/query/query.js"></script>
+          <script src="app/serviceInput/serviceInput.directive.js"></script>
+          <script src="app/trace/trace.controller.js"></script>
+          <script src="app/trace/trace.js"></script>
+          <script src="app/traceDetail/traceDetail.directive.js"></script>
+          <script src="app/traceInfo/traceInfo.directive.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->

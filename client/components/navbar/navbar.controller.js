@@ -3,9 +3,10 @@
 angular.module('dtraceUiApp')
   .controller('NavbarCtrl', function ($scope, $location) {
     $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+      'title': 'Find a trace',
+      'link': '/query'
+    },
+    ];
 
     $scope.isCollapsed = true;
 

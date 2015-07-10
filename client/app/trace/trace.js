@@ -3,8 +3,8 @@
 angular.module('dtraceUiApp')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+      .when('/trace/:id', {
+        templateUrl: 'app/trace/trace.html',
+        controller: 'TraceCtrl'
       });
   });

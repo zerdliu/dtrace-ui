@@ -3,8 +3,8 @@
 angular.module('dtraceUiApp')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+      .when('/query', {
+        templateUrl: 'app/query/query.html',
+        controller: 'QueryCtrl'
       });
   });
