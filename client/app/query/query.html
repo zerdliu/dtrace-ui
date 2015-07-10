@@ -3,10 +3,10 @@
 <div class="container">
   <div class="content">
     <div class="row well well-sm">
-      <form class="form-inline" role="form" name="queryFrom" ng-submit="search(query)" novalidate>
-
-        <div class="form-group" ng-class="{ 'has-error': queryForm.service.$invalid }">
-          <ui-select name="service" ng-required="true" style="width:234px;" ng-model="query.service">
+    
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <ui-select style="width:234px;" ng-model="query.service" ng-disabled="disabled">
             <ui-select-match placeholder="Service Name">{{$select.selected}}</ui-select-match>
             <ui-select-choices repeat="service in services| filter: $select.search">
               <span ng-bind-html="service | highlight: $select.search"></span>
