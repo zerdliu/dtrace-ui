@@ -4,7 +4,7 @@
   <div class="content">
     <div class="row well well-sm">
     
-      <form class="form-inline" role="form">
+      <form class="form-inline" role="form" ng-submit="search(query)">
         <div class="form-group">
           <ui-select style="width:234px;" ng-model="query.service" ng-disabled="disabled">
             <ui-select-match placeholder="Service Name">{{$select.selected}}</ui-select-match>
@@ -16,7 +16,7 @@
 
         <div class="form-group">
           <label>End time</label>
-	  <date-time-input enddate="query.enddate" endtime="query.enddtime" end="query.end"></date-time-input>
+          <date-time-input enddate="query.enddate" endtime="query.enddtime" end="query.end"></date-time-input>
         </div>
 
         <div class="form-group">
@@ -38,9 +38,7 @@
       <p>Please select the criteria for your trace lookup.</p>
     </div>
 
-    <div ng-repeat="trace in traces"> 
-      <trace-info></trace-info>
-    </div>
+    <trace-info traces="traces"></trace-info>
   </div>
 
 </div>

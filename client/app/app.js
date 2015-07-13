@@ -6,9 +6,8 @@ angular.module('dtraceUiApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
+  'angularMoment',
   'ui.select',
-  'ui.bootstrap.datetimepicker',
-  'datePicker'
 ])
   .config(function ($httpProvider, $routeProvider, $locationProvider) {
     $routeProvider

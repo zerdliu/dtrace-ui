@@ -1,18 +1,43 @@
-<ul class="list-unstyled">
-  <li class="trace">
-    <a href="/trace/{{trace.traceId}}">
-      <div>
-        {{trace.endTimestamp - trace.startTimestamp | number }}ms
-        {{trace.spanTimestamps.length}} spans
+<div ng-if="traces.length">
+  <h5>
+    Results: {{ traces.length }} 
+  </h5>
+
+  <ul class="nav nav-pills">
+    <button class="btn btn-sm btn-default" ng-click="setOrder('-(endTimestamp - startTimestamp)')">Longest First</button>
+    <button class="btn btn-sm btn-default" ng-click="setOrder('(endTimestamp - startTimestamp)')">Sortest First</button>
+    <button class="btn btn-sm btn-default" ng-click="setOrder('-startTimestamp')">Newest First</button>
+    <button class="btn btn-sm btn-default" ng-click="setOrder('startTimestamp')">Oldest First</button>
+  </ul>
+</div>
+
+</br>
+
+<div ng-repeat="trace in traces | orderBy: order">
+  <ul id="traces">
+    <li class="trace">
+      <a href="/trace/{{trace.traceId}}">
+        <div class="bar-block">
+          <span class="bar-graphic" style="width:100%;"></span>
+          <span class="bar-label">{{trace.endTimestamp - trace.startTimestamp | number }}ms</span>
+          <span class="bar-label">{{trace.spanTimestamps.length}} spans</span>
+        </div>
+        <!--
+        <div class="bar-block">
+          <span class="bar-graphic" style="width:{{servicePercentage}}%;"></span>
+          <span class="bar-label">{{serviceName}} {{servicePercentage}}%</span>
+        </div>
+        -->
+      </a>
+
+      <div class="trace-details services">
+        <span ng-repeat="span in trace.spanTimestamps" class="label label-default service-filter-label" data-service-name="{{span.name}}">{{span.name}} x{{count}} {{max}}ms</span>
       </div>
-    </a>
-
-    <div class="btn-group" ng-repeat="span in trace.spanTimestamps">
-      <span class="label label-default service-filter-label">{{span.name}}</span>
-    </div>
-
-    <div class="label label-primary timestamp pull-right">
-      {{ trace.startTimestamp / 1000 | date}}
-    </div>
-  </li>
-</ul>
+      <div class="trace-details timestamp pull-right">
+        <time class="label timeago" am-time-ago="trace.startTimestamp / 1000"> {{trace.startTimestamp / 1000 | date:'medium'}} </time>
+        <time class="label timeago">{{trace.startTimestamp / 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</time>
+      </div>
+  
+    </li>
+  </ul>
+</div>
