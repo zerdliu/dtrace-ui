@@ -14,6 +14,8 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+      <link rel="stylesheet" href="bower_components/cal-heatmap/cal-heatmap.css" />
+      <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -58,13 +60,22 @@
       <script src="bower_components/angular-ui-select/dist/select.js"></script>
       <script src="bower_components/moment/moment.js"></script>
       <script src="bower_components/angular-moment/angular-moment.js"></script>
+      <script src="bower_components/d3/d3.js"></script>
+      <script src="bower_components/cal-heatmap/cal-heatmap.js"></script>
+      <script src="bower_components/nvd3/nv.d3.js"></script>
+      <script src="bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/calHeatmap/calHeatmap.directive.js"></script>
           <script src="app/dateTimeInput/dateTimeInput.directive.js"></script>
+          <script src="app/heatmap/heatmap.controller.js"></script>
+          <script src="app/heatmap/heatmap.js"></script>
+          <script src="app/histogram/histogram.controller.js"></script>
+          <script src="app/histogram/histogram.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/query/query.controller.js"></script>

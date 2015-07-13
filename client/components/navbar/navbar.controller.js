@@ -6,6 +6,14 @@ angular.module('dtraceUiApp')
       'title': 'Find a trace',
       'link': '/query'
     },
+    {
+      'title': 'Histogram',
+      'link': '/histogram'
+    },
+    {
+      'title': 'Heatmap',
+      'link': '/heatmap'
+    },
     ];
 
     $scope.isCollapsed = true;

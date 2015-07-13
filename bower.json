@@ -16,7 +16,9 @@
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
     "angular-ui-select": "~0.12.0",
-    "angular-moment": "~0.10.1"
+    "angular-moment": "~0.10.1",
+    "cal-heatmap": "~3.4.0",
+    "angular-nvd3": "~0.1.1"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",

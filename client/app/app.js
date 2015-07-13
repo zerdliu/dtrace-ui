@@ -7,7 +7,8 @@ angular.module('dtraceUiApp', [
   'ngRoute',
   'ui.bootstrap',
   'angularMoment',
-  'ui.select',
+  'nvd3',
+  'ui.select'
 ])
   .config(function ($httpProvider, $routeProvider, $locationProvider) {
     $routeProvider
