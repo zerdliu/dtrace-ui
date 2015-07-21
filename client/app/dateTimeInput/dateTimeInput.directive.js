@@ -32,8 +32,8 @@ function controller($scope) {
 
   // set time now
   var now = new Date();
-  $scope.enddate = now.getFullYear() + "-" + ( now.getMonth() + 1 ) + "-" + now.getDate(); 
-  $scope.endtime = $scope.endtime ? null : ( now.getHours() + ":" + now.getMinutes()) ;
+  $scope.enddate = $scope.enddate || ( now.getFullYear() + "-" + ( now.getMonth() + 1 ) + "-" + now.getDate() );
+  $scope.endtime = $scope.endtime || ( now.getHours() + ":" + now.getMinutes()) ;
 
   function combineDateTime() {
     if($scope.enddate && $scope.endtime) {

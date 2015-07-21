@@ -31,10 +31,10 @@
       </a>
 
       <div class="trace-details services">
-        <span ng-repeat="span in trace.spanTimestamps" class="label label-default service-filter-label" data-service-name="{{span.name}}">{{span.name}} x{{count}} {{max}}ms</span>
+        <span ng-repeat="span in trace.spanTimestamps" class="label label-default service-filter-label">{{span.name}} x{{count}} {{max}}ms</span>
       </div>
       <div class="trace-details timestamp pull-right">
-        <time class="label timeago" am-time-ago="trace.startTimestamp / 1000"> {{trace.startTimestamp / 1000 | date:'medium'}} </time>
+        <time class="label timeago" am-time-ago="trace.startTimestamp / 1000"></time>
         <time class="label timeago">{{trace.startTimestamp / 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</time>
       </div>
   
